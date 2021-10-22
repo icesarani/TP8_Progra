@@ -1,0 +1,53 @@
+'''
+def verificarFecha(fecha):
+if int(fecha[:2])<1 or int(fecha[:2]>31) or int(fecha[2:4])<1 or int(fecha[2:4])>12 or int(fecha[4:])<1 or int(fecha[2:4])>9999:
+    return False
+else:
+    return True
+'''
+
+def validacionInt(n,d,h):
+    if d == "x":
+        if n>h:
+            n = int(input("Ingrese un valor valido para lo necesitado: "))
+            validacionInt(n,d,h)
+        else:
+            return n
+    elif h == "x":
+        if n<d:
+            n = int(input("Ingrese un valor valido para lo necesitado: "))
+            validacionInt(n,d,h)
+        else:
+            return n
+    else:
+        if n<d or n>h:
+            n = int(input("Ingrese un valor valido para lo necesitado: "))
+            validacionInt(n,d,h)
+        else:
+            return n
+
+
+def mes(m):
+    meses = {1:"Enero",2:"Febrero",3:"Marzo",4:"Abril",5:"Mayo",6:"Junio",7:"Julio",8:"Agosto",9:"Septiembre",10:"Octubre",11:"Noviembre",12:"Diciembre"}
+    return meses[m]
+
+def fecha(tupla):
+    d,m,a = tupla
+    if a <99:
+        return f"{d} de {mes(m)} de 20{a}"
+    else:
+        return f"{d} de {mes(m)} de {a}"
+
+def main():
+    d = int(input("Ingresar el día: "))
+    d = validacionInt(d,1,31)
+    m = int(input("Ingresar el mes: "))
+    m = validacionInt(m,1,12)
+    a = int(input("Ingresar el año: "))   
+    a = validacionInt(a,1,"x")
+
+    print(fecha((d,m,a)))
+
+    return True
+
+main()
