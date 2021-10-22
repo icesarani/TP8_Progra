@@ -1,0 +1,8 @@
+
+def compatibles(tupla1,tupla2):
+    x,y = tupla1
+    i,j = tupla2
+    if x == i or x == j or y == i or y == j:
+        return True
+    else:
+        return False
