@@ -1,0 +1,19 @@
+def partes(mail):
+    try:
+        parts = []
+        user,ext = mail.split("@")
+        parts.append(user)
+        extra = ext.split(".")
+        for x in extra:
+            parts.append(x)
+    except NameError:
+        print("Se produjo un error al analizar el mail...")
+    return(tuple(parts))
+
+def main():
+    email = input("Ingrese el mail que desea ver las partes: ")
+    tuplapartes = partes(email)
+    print(tuplapartes)
+    return True
+
+main()
