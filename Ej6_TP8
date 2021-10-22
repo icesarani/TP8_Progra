@@ -1,0 +1,23 @@
+#ejercicoi 6
+def ordernarFrase(frase):
+    for x in range(len(frase)):
+        for y in range(x,len(frase)):
+            if len(frase[x]) > len(frase[y]):
+                aux = frase[y]
+                frase[y] = frase[x]
+                frase[x] = aux
+                
+
+def frasesinrep(frase):
+    frase = list(set(frase))
+    return frase
+
+def main():
+    frase = input("Ingrese la frase que desea ordenar y deduplicar: ")
+    frase = list(frase)
+    frase = frasesinrep(frase)
+    ordernarFrase(frase)
+    print(frase)
+    return True
+
+main()
